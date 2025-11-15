@@ -1,0 +1,42 @@
+package com.todoapp.controller;
+
+
+import org.springframework.web.bind.annotation.*;
+
+import com.todoapp.model.Todo;
+import com.todoapp.repository.TodoRepository;
+
+import java.util.List;
+
+@RestController
+@CrossOrigin
+@RequestMapping("/api/todos")
+public class TodoController {
+
+    private final TodoRepository repo;
+
+    public TodoController(TodoRepository repo) {
+        this.repo = repo;
+    }
+
+    @GetMapping
+    public List<Todo> getAll() {
+        return repo.findAll();
+    }
+
+    @PostMapping
+    public Todo add(@RequestBody Todo todo) {
+        return repo.save(todo);
+    }
+
+    @PutMapping("/{id}")
+    public Todo update(@PathVariable Long id, @RequestBody Todo todo) {
+        todo.setId(id);
+        return repo.save(todo);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        repo.deleteById(id);
+    }
+}

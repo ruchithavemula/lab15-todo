@@ -1,0 +1,47 @@
+body {
+  font-family: Arial;
+  background: #f3f3f3;
+}
+
+.todo-container {
+  width: 400px;
+  margin: 40px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.todo-form {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-form input {
+  flex: 1;
+  padding: 8px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  margin-top: 10px;
+  background: #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.done span {
+  text-decoration: line-through;
+  color: green;
+}
+
+.update-box {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
